@@ -1,0 +1,10 @@
+# MeCab (Japanese morphological analyzer)
+mecab-python3
+ipadic
+
+# Doc2Vec (Word and document embedding)
+gensim
+
+# WordCloud visualization
+wordcloud
+matplotlib

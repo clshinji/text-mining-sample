@@ -1,0 +1,444 @@
+# テキスト分類ハンズオン
+
+## タスク1
+### タスクの内容
+Amazon Comprehend のハンズオンで使用するサンプルのテキストファイルを作成します。
+
+### サンプルのテキストファイルの作成条件
+- テキストファイルはマークダウン形式で作成する
+- テキストの文字数は 2000 文字程度
+- Comprehend の Analysis job の設定は以下を想定
+  - Analysis type (Built-in)
+    - Entity recognition
+    - Events
+    - Key phrases
+    - Primary language
+    - Personally identifiable infomation (PII)
+    - Sentiment
+    - Targeted sentiment
+    - Topic modeling
+- サンプルファイルは `sample-text` ディレクトリに保存する
+
+## タスク2
+### タスクの内容
+Python (boto3) を使って Comprehend を使った分析を体験するためのサンプルコードを作成します。
+
+### サンプルコードの作成条件
+- サンプルコードは `sample-code` ディレクトリに保存する
+- SageMaker ノートブックインスタンスを利用します。
+  - インスタンスタイプは `ml.t3.medium` を使用します。
+  - カーネルは `conda python3` を使用します。boto3 はインストール済みの環境です。
+- サンプルファイルを読み取って、 Amazon Comprehend を使って `Key phrases` の分析を行います。
+- サンプルファイルを読み取って、頻出単語を抽出する分析を行います。
+- 助詞のような補助的な言葉を誤検出しないように、ベストプラクティスに基づいた対処が必要です。
+- 結果は標準出力で print で出力します。
+
+## タスク3
+### タスクの内容
+MeCab を使ったサンプルコードを作成します。
+
+### サンプルコードの作成条件
+- SageMaker ノートブックインスタンスを利用します。
+  - インスタンスタイプは `ml.t3.medium` を使用します。
+- サンプルファイルを読み取って、頻出単語を抽出する分析を行います。
+- MeCab を使ったベストプラクティスに基づいた分析例も作成します。
+
+## タスク4
+### タスクの内容
+doc2vec を使ったサンプルコードを作成します。
+
+### サンプルコードの作成条件
+- SageMaker ノートブックインスタンスを利用します。
+  - インスタンスタイプは `ml.t3.medium` を使用します。
+- サンプルファイルを読み取って、頻出単語を抽出する分析を行います。
+- doc2vec を使ったベストプラクティスに基づいた分析例も作成します。
+
+## タスク5
+自然言語処理のスペシャリストとして、テキスト分類の初心者にも分かるように説明用のテキストファイルをマークダウン形式で作成します。
+
+### 説明用テキストに記載する内容
+- テキスト分類を説明する
+- タスク1からタスク4までの内容を説明する
+- 今後の学習プランを紹介する
+
+
+## 参考: SageMaker ノートブックインスタンスで最初から利用できるライブラリ
+
+```
+Package                          Version
+-------------------------------- -----------------
+aiohappyeyeballs                 2.6.1
+aiohttp                          3.12.13
+aiosignal                        1.3.2
+alabaster                        1.0.0
+annotated-types                  0.7.0
+antlr4-python3-runtime           4.9.3
+anyio                            4.9.0
+argon2-cffi                      25.1.0
+argon2-cffi-bindings             21.2.0
+arrow                            1.3.0
+astroid                          3.3.10
+astropy                          6.1.7
+astropy-iers-data                0.2025.6.9.0.39.3
+asttokens                        3.0.0
+async-lru                        2.0.5
+async-timeout                    5.0.1
+asyncssh                         2.21.0
+atomicwrites                     1.4.1
+attrs                            25.3.0
+Authlib                          1.6.0
+autopep8                         2.0.4
+autovizwidget                    0.22.0
+awscli                           1.40.37
+babel                            2.17.0
+backports-datetime-fromisoformat 2.0.3
+backports.tarfile                1.2.0
+bcrypt                           4.3.0
+beautifulsoup4                   4.13.4
+binaryornot                      0.4.4
+bitarray                         3.4.2
+black                            25.1.0
+bleach                           6.2.0
+blinker                          1.9.0
+bokeh                            3.7.3
+boto3                            1.38.38
+botocore                         1.38.38
+Bottleneck                       1.5.0
+Brotli                           1.1.0
+brotlipy                         0.7.0
+cached-property                  1.5.2
+certifi                          2025.6.15
+cffi                             1.17.1
+chardet                          5.2.0
+charset-normalizer               3.4.2
+click                            8.1.8
+cloudpickle                      3.1.1
+colorama                         0.4.6
+comm                             0.2.2
+contourpy                        1.3.2
+cookiecutter                     2.6.0
+coverage                         7.9.1
+cryptography                     45.0.4
+cycler                           0.12.1
+Cython                           3.1.2
+cytoolz                          1.0.1
+dask                             2025.5.1
+debugpy                          1.8.14
+decorator                        5.2.1
+defusedxml                       0.7.1
+Deprecated                       1.2.18
+diff-match-patch                 20241021
+dill                             0.4.0
+distributed                      2025.5.1
+docker                           7.1.0
+docstring-to-markdown            0.17
+docutils                         0.19
+dparse                           0.6.4
+entrypoints                      0.4
+et_xmlfile                       2.0.0
+exceptiongroup                   1.3.0
+executing                        2.2.0
+fastapi                          0.115.13
+fastcache                        1.1.0
+fastjsonschema                   2.21.1
+filelock                         3.16.1
+flake8                           7.1.2
+Flask                            3.1.1
+flask-cors                       6.0.1
+fonttools                        4.58.4
+fqdn                             1.5.1
+frozenlist                       1.6.0
+fsspec                           2025.5.1
+future                           1.0.0
+gevent                           25.5.1
+gmpy2                            2.2.1
+google-pasta                     0.2.0
+graphene                         3.4.3
+graphql-core                     3.2.6
+graphql-relay                    3.2.0
+greenlet                         3.2.3
+gssapi                           1.9.0
+h11                              0.16.0
+h2                               4.2.0
+h5py                             3.13.0
+hdijupyterutils                  0.22.0
+hpack                            4.1.0
+hyperframe                       6.1.0
+idna                             3.10
+imagecodecs-lite                 2019.12.3
+imageio                          2.37.0
+imagesize                        1.4.1
+immutables                       0.21
+importlib-metadata               6.11.0
+importlib_resources              6.5.2
+inflection                       0.5.1
+iniconfig                        2.0.0
+intervaltree                     3.1.0
+ipykernel                        6.29.5
+ipython                          8.37.0
+ipywidgets                       8.1.7
+isoduration                      20.11.0
+isort                            6.0.1
+itsdangerous                     2.2.0
+jaraco.classes                   3.4.0
+jaraco.context                   6.0.1
+jaraco.functools                 4.1.0
+jedi                             0.19.2
+jeepney                          0.9.0
+jellyfish                        1.1.3
+Jinja2                           3.1.6
+jmespath                         1.0.1
+joblib                           1.5.1
+json5                            0.12.0
+jsonpointer                      3.0.0
+jsonschema                       4.24.0
+jsonschema-specifications        2025.4.1
+jupyter                          1.1.1
+jupyter_client                   8.6.3
+jupyter-console                  6.6.3
+jupyter_core                     5.8.1
+jupyter-events                   0.12.0
+jupyter-lsp                      2.2.5
+jupyter_server                   2.16.0
+jupyter_server_terminals         0.5.3
+jupyterlab                       4.4.3
+jupyterlab_pygments              0.3.0
+jupyterlab_server                2.27.3
+jupyterlab_widgets               3.0.15
+keyring                          25.6.0
+kiwisolver                       1.4.7
+krb5                             0.7.1
+lazy_loader                      0.4
+lazy-object-proxy                1.11.0
+lief                             0.16.6
+llvmlite                         0.44.0
+locket                           1.0.0
+lz4                              4.4.4
+markdown-it-py                   3.0.0
+MarkupSafe                       3.0.2
+marshmallow                      4.0.0
+matplotlib                       3.10.3
+matplotlib-inline                0.1.7
+mccabe                           0.7.0
+mdurl                            0.1.2
+mistune                          3.1.3
+mkl_fft                          1.3.14
+mkl-service                      2.5.0
+mock                             4.0.3
+more-itertools                   10.7.0
+mpmath                           1.3.0
+msgpack                          1.1.1
+multidict                        6.4.4
+multiprocess                     0.70.18
+munkres                          1.1.4
+mypy_extensions                  1.1.0
+narwhals                         1.43.0
+nbclient                         0.10.2
+nbconvert                        7.16.6
+nbformat                         5.10.4
+nest_asyncio                     1.6.0
+networkx                         3.4.2
+nltk                             3.9.1
+notebook                         7.4.3
+notebook_shim                    0.2.4
+numba                            0.61.2
+numexpr                          2.7.3
+numpy                            1.26.4
+numpydoc                         1.8.0
+nvidia-ml-py                     12.575.51
+omegaconf                        2.3.0
+openpyxl                         3.1.5
+overrides                        7.7.0
+packaging                        24.2
+pandas                           2.2.3
+pandocfilters                    1.5.0
+parso                            0.8.4
+partd                            1.4.2
+path                             17.1.0
+pathlib2                         2.3.7.post1
+pathos                           0.3.4
+pathspec                         0.12.1
+patsy                            1.0.1
+pexpect                          4.9.0
+pickleshare                      0.7.5
+pillow                           11.2.1
+pip                              25.1.1
+pkginfo                          1.12.1.2
+pkgutil_resolve_name             1.3.10
+platformdirs                     4.3.8
+plotly                           6.1.2
+pluggy                           1.6.0
+ply                              3.11
+pox                              0.3.6
+ppft                             1.7.7
+prometheus_client                0.22.1
+prompt_toolkit                   3.0.51
+propcache                        0.3.1
+protobuf                         5.29.5
+psutil                           6.1.1
+psycopg2                         2.9.9
+psycopg2-binary                  2.9.9
+ptyprocess                       0.7.0
+pure_eval                        0.2.3
+py-cpuinfo                       9.0.0
+py4j                             0.10.9.5
+pyarrow                          20.0.0
+pyasn1                           0.6.1
+pycodestyle                      2.12.1
+pyconify                         0.2.1
+pycosat                          0.6.6
+pycparser                        2.22
+pycryptodome                     3.23.0
+pycurl                           7.45.6
+pydantic                         2.9.2
+pydantic_core                    2.23.4
+pydocstyle                       6.3.0
+pyerfa                           2.0.1.5
+pyflakes                         3.2.0
+PyGithub                         2.6.1
+Pygments                         2.19.1
+PyJWT                            2.10.1
+pykerberos                       1.2.4
+pylint                           3.3.7
+pylint-venv                      3.0.4
+pyls-spyder                      0.4.0
+PyNaCl                           1.5.0
+pynvml                           12.0.0
+pyodbc                           5.2.0
+pyOpenSSL                        25.1.0
+pyparsing                        3.2.3
+PyQt5                            5.15.11
+PyQt5_sip                        12.17.0
+PyQtWebEngine                    5.15.7
+pyrsistent                       0.20.0
+PySide6                          6.9.1
+PySocks                          1.7.1
+pyspark                          3.3.0
+pyspnego                         0.11.2
+pytest                           8.4.0
+python-dateutil                  2.9.0.post0
+python-json-logger               2.0.7
+python-lsp-black                 2.0.0
+python-lsp-jsonrpc               1.1.2
+python-lsp-server                1.12.2
+python-slugify                   8.0.4
+pytoolconfig                     1.2.5
+pytz                             2024.1
+pyuca                            1.2
+PyWavelets                       1.8.0
+pyxdg                            0.28
+PyYAML                           6.0.2
+pyzmq                            27.0.0
+QDarkStyle                       3.2.3
+qstylizer                        0.2.4
+QtAwesome                        1.4.0
+qtconsole                        5.6.1
+QtPy                             2.4.3
+referencing                      0.36.2
+regex                            2024.11.6
+requests                         2.32.4
+requests-kerberos                0.15.0
+rfc3339_validator                0.1.4
+rfc3986-validator                0.1.1
+rich                             14.0.0
+rope                             1.13.0
+rpds-py                          0.25.1
+rsa                              4.7.2
+rtree                            1.4.0
+ruamel.yaml                      0.18.14
+ruamel.yaml.clib                 0.2.8
+ruamel-yaml-conda                0.15.80
+s3fs                             0.4.2
+s3transfer                       0.13.0
+safety-schemas                   0.0.14
+sagemaker                        2.247.0
+sagemaker-core                   1.0.38
+sagemaker_pyspark                1.4.5
+schema                           0.7.7
+scikit-image                     0.20.0
+scikit-learn                     1.7.0
+scipy                            1.15.2
+seaborn                          0.13.2
+SecretStorage                    3.3.3
+Send2Trash                       1.8.3
+setuptools                       80.9.0
+shap                             0.48.0
+shellingham                      1.5.4
+shiboken6                        6.9.1
+sip                              6.10.0
+six                              1.17.0
+slicer                           0.0.8
+smdebug-rulesconfig              1.0.1
+sniffio                          1.3.1
+snowballstemmer                  3.0.1
+sortedcontainers                 2.4.0
+soupsieve                        2.7
+sparkmagic                       0.21.0
+Sphinx                           8.1.3
+sphinxcontrib-applehelp          2.0.0
+sphinxcontrib-devhelp            2.0.0
+sphinxcontrib-htmlhelp           2.1.0
+sphinxcontrib-jsmath             1.0.1
+sphinxcontrib-qthelp             2.0.0
+sphinxcontrib-serializinghtml    1.1.10
+sphinxcontrib-websupport         1.2.7
+spyder                           6.0.7
+spyder-kernels                   3.0.5
+SQLAlchemy                       2.0.41
+stack_data                       0.6.3
+starlette                        0.46.2
+statsmodels                      0.14.4
+superqt                          0.7.3
+sympy                            1.14.0
+tables                           3.10.1
+tabulate                         0.9.0
+tblib                            3.1.0
+tenacity                         9.1.2
+terminado                        0.18.1
+testpath                         0.6.0
+text-unidecode                   1.3
+textdistance                     4.6.3
+threadpoolctl                    3.6.0
+three-merge                      0.1.1
+tifffile                         2020.6.3
+tinycss2                         1.4.0
+toml                             0.10.2
+tomli                            2.2.1
+tomlkit                          0.13.3
+toolz                            1.0.0
+tornado                          6.5.1
+tqdm                             4.67.1
+traitlets                        5.14.3
+typed-ast                        1.5.5
+typer                            0.16.0
+types-python-dateutil            2.9.0.20250516
+typing_extensions                4.14.0
+typing_utils                     0.1.0
+tzdata                           2025.2
+ujson                            5.10.0
+unicodedata2                     16.0.0
+uri-template                     1.3.0
+urllib3                          2.4.0
+uvicorn                          0.34.3
+watchdog                         6.0.0
+wcwidth                          0.2.13
+webcolors                        24.11.1
+webencodings                     0.5.1
+websocket-client                 1.8.0
+Werkzeug                         3.1.3
+whatthepatch                     1.0.7
+wheel                            0.45.1
+widgetsnbextension               4.0.14
+wrapt                            1.17.2
+wurlitzer                        3.1.1
+XlsxWriter                       3.2.3
+xyzservices                      2025.4.0
+yapf                             0.43.0
+yarl                             1.20.1
+zict                             3.0.0
+zipp                             3.23.0
+zope.event                       5.0
+zope.interface                   7.2
+zstandard                        0.23.0
+```
+
