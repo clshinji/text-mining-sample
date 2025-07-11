@@ -196,6 +196,7 @@ temp/
 *.tmp
 *.temp
 .dev/
+.venv/
 
 # Large font files (except the one we need)
 *.ttf

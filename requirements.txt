@@ -1,10 +1,13 @@
 # MeCab (Japanese morphological analyzer)
-mecab-python3
-ipadic
+mecab-python3==1.0.8        # Python バインディング for MeCab 本体
+ipadic==1.0.0               # IPADIC 辞書
+unidic-lite==1.0.8          # 軽量辞書を使う（pip だけで完結）
 
 # Doc2Vec (Word and document embedding)
-gensim
+gensim==4.3.1               # Doc2Vec, Word2Vec など
 
 # WordCloud visualization
-wordcloud
-matplotlib
+wordcloud==1.8.2            # ワードクラウド描画
+matplotlib==3.7.2           # プロット全般
+
+# Strands Agents
