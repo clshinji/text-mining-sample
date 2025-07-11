@@ -1,6 +1,6 @@
 # Amazon Comprehend テキスト分析プロジェクト
 
-このプロジェクトは、Amazon Comprehend、Amazon Bedrock、MeCab、Doc2Vecなどの様々な技術を使用して、日本語テキストの分析を行うサンプルコード集です。
+このプロジェクトは、Amazon Comprehend、Amazon Bedrock、MeCab、Doc2Vec、Strands Agentsなどの様々な技術を使用して、日本語テキストの分析を行うサンプルコード集です。
 
 ## プロジェクト概要
 
@@ -10,6 +10,7 @@
 - **Amazon Bedrock**: Claude 4 Sonnetを使用した特徴的な単語抽出
 - **MeCab**: 日本語形態素解析による単語頻度分析
 - **Doc2Vec**: 文書ベクトル化による類似度分析
+- **Strands Agents**: エージェントベースのテキスト分析（開発中）
 
 ## ディレクトリ構成
 
@@ -17,15 +18,33 @@
 amazon-comprehend/
 ├── README.md                    # このファイル
 ├── requirements.txt             # Python依存関係
+├── .gitignore                   # Git除外設定
+├── .venv/                       # Python仮想環境
 ├── sample-code/                 # サンプルコード
 │   ├── comprehend_analysis.py   # Amazon Comprehend分析
 │   ├── bedrock_keyword_analyzer.py # Bedrock + ワードクラウド
 │   ├── mecab_analysis.py        # MeCab形態素解析
 │   ├── doc2vec_analysis.py      # Doc2Vec文書分析
+│   ├── strands_agent_sample.py  # Strands Agents（開発中）
 │   └── MEIRYO.TTC              # 日本語フォント（ワードクラウド用）
 ├── sample-text/                 # 分析対象テキスト
 │   ├── sample.md               # メインサンプルテキスト
-│   └── sample2.md              # 追加サンプルテキスト
+│   ├── sample2.md              # 追加サンプルテキスト
+│   ├── sample3_news.md         # ニュース記事風
+│   ├── sample4_manual.md       # 技術文書・マニュアル風
+│   ├── sample5_sns.md          # SNS投稿・口コミ風
+│   ├── sample6_academic.md     # 学術論文・研究報告風
+│   ├── sample7_essay.md        # 小説・エッセイ風
+│   ├── sample8_track_maintenance.md    # 鉄道保線部門
+│   ├── sample9_civil_engineering.md   # 鉄道土木部門
+│   ├── sample10_station_equipment.md  # 鉄道機械部門
+│   ├── sample11_rolling_stock.md      # 鉄道車両部門
+│   ├── sample12_building_maintenance.md # 鉄道建築部門
+│   ├── sample13_overhead_line.md      # 鉄道電車線部門
+│   ├── sample14_substation.md         # 鉄道変電部門
+│   ├── sample15_power_distribution.md # 鉄道配電部門
+│   ├── sample16_signaling.md          # 鉄道信号部門
+│   └── sample17_communication.md      # 鉄道通信部門
 └── _work/                      # 作業用ファイル
     ├── memo.md                 # プロジェクトメモ
     ├── llm.md                  # LLMプロンプトテンプレート
@@ -52,17 +71,25 @@ git clone <repository-url>
 cd amazon-comprehend
 ```
 
-2. **Python依存関係のインストール**
+2. **Python仮想環境の作成と有効化**
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
+# または
+.venv\Scripts\activate     # Windows
+```
+
+3. **Python依存関係のインストール**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **MeCabのインストール（Ubuntu/Debian）**
+4. **MeCabのインストール（Ubuntu/Debian）**
 ```bash
 sudo apt-get install mecab mecab-ipadic-utf8 libmecab-dev
 ```
 
-4. **AWS認証情報の設定**
+5. **AWS認証情報の設定**
 ```bash
 aws configure
 ```
@@ -104,6 +131,14 @@ python doc2vec_analysis.py
 - 文書ベクトル化
 - 類似度分析
 
+### 5. Strands Agents分析（開発中）
+```bash
+cd sample-code
+python strands_agent_sample.py
+```
+- エージェントベースのテキスト分析
+- 現在開発中のため、機能は限定的です
+
 ## サンプルテキストについて
 
 `sample-text`ディレクトリには、自然言語処理の分析手法を比較検証するための多様なサンプルテキストが含まれています：
@@ -136,12 +171,19 @@ python doc2vec_analysis.py
 - 品詞別単語リスト
 - 頻度統計
 
+### Doc2Vec
+- 文書ベクトル表現
+- 文書間類似度スコア
+- 類似文書ランキング
+
 ## 注意事項
 
 - AWS利用料金が発生する可能性があります
 - Amazon Bedrockは利用可能なリージョンが限定されています
 - MeCabの辞書設定は環境により調整が必要な場合があります
 - 大量のテキスト処理時はAPI制限にご注意ください
+- Python仮想環境（.venv）の使用を推奨します
+- 生成されるファイル（画像、JSON等）は.gitignoreで除外されています
 
 ## ライセンス
 
